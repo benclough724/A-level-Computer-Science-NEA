@@ -4,31 +4,33 @@ const test = ["Ben", "Joe", "CHris"];
 //const grid = [];
 
 class PathfinderGrid extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       grid: [],
     };
   }
+  
 
   componentDidMount() {
     const grid = createGrid();
     this.setState({ grid });
+    //console.log(this.state.grid)
   }
 
   render() {
+    //console.log(this.state.grid)
     return (
       <div>
-        {grid.map(() => {
-          return (
-            <Node />
-          );
-        })
-        }
+        {this.state.grid.map((grid, currentRow) => {
+          return <Node/>
+        })}
       </div >
     );
   }
 }
+
+
 
 const createGrid = () => {
   const grid = [];
@@ -42,8 +44,16 @@ const createGrid = () => {
 
   }
   return grid;
-}
+};
 
+// const createNode = (row, col) => {
+//   return {
+//     row,
+//     col,
+//   };
+//   console.log(row);
+//   console.log(col);
+// };
 
 export default PathfinderGrid;
 
