@@ -40,7 +40,6 @@ const createGrid = () => {
       currentRow.push(createNode(row, col));
     }
     grid.push(currentRow);
-    grid.push(currentRow)
     console.log(grid);
 
   }
