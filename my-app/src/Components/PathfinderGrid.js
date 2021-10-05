@@ -10,7 +10,7 @@ class PathfinderGrid extends Component {
       grid: [],
     };
   }
-  
+
 
   componentDidMount() {
     const grid = createGrid();
@@ -22,8 +22,8 @@ class PathfinderGrid extends Component {
     //console.log(this.state.grid)
     return (
       <div>
-        {this.state.grid.map((grid, currentRow) => {
-          return <Node/>
+        {this.state.grid.map((row, rowIdx) => {
+          return <Node />
         })}
       </div >
     );
@@ -37,23 +37,24 @@ const createGrid = () => {
   for (let row = 0; row < 15; row++) {
     const currentRow = [];
     for (let col = 0; col < 50; col++) {
-      currentRow.push();
+      currentRow.push(createNode(row, col));
     }
     grid.push(currentRow);
+    grid.push(currentRow)
     console.log(grid);
 
   }
   return grid;
 };
 
-// const createNode = (row, col) => {
-//   return {
-//     row,
-//     col,
-//   };
-//   console.log(row);
-//   console.log(col);
-// };
+const createNode = (row, col) => {
+  return {
+    row,
+    col,
+  };
+  console.log(row);
+  console.log(col);
+};
 
 export default PathfinderGrid;
 

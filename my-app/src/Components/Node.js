@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
-export default class Node extends Component{
+export default class Node extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -9,10 +9,10 @@ export default class Node extends Component{
     }
 
     render() {
-       return(
-        <div class = " w-10 h-10 outline-black">
-            
-        </div>
-    );
+        return (
+            <div class=" w-10 h-10 outline-black">
+
+            </div>
+        );
     }
 }
