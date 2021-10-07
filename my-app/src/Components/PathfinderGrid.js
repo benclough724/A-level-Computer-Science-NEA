@@ -21,7 +21,7 @@ class PathfinderGrid extends Component {
   render() {
     //console.log(this.state.grid)
     return (
-      <div className="grid grid-flow-row">
+      <div className="">
         {this.state.grid.map((rows, currentRow) => {
           return (
 
@@ -44,21 +44,21 @@ class PathfinderGrid extends Component {
 
 const createGrid = () => {
   let grid = [];
-  for (let row = 1; row < 15; row++) {
+  for (let row = 1; row < 20; row++) {
     grid[row]= [];
-    for (let col = 0; col < 50; col++) {
-      grid = addCell(grid, row, col);
+    for (let col = 0; col < 47; col++) {
+      grid = createNode(grid, row, col);
     }
     grid.push(grid[row]);
-
+    console.log(grid)
   }
   return grid;
 
 };
 
-function addCell(grid, x, y) {
-  grid[x][y] = 1
-  return grid
+const createNode = (grid, x, y) => {
+  grid[x][y] = 1;
+  return grid;
 }
 
 export default PathfinderGrid;
