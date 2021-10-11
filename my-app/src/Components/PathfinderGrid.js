@@ -21,7 +21,7 @@ class PathfinderGrid extends Component {
   render() {
     //console.log(this.state.grid)
     return (
-      <div className="">
+      <div className="text-center margin-top-100">
         {this.state.grid.map((rows, currentRow) => {
           return (
 

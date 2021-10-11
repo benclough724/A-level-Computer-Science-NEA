@@ -5,7 +5,7 @@ export default class Node extends Component{
         super(props);
         this.state = {
             isWall: false,
-             
+            count: 10,
             currentCol: props.currentCol,
             currentRow:props.currentRow
         };
@@ -13,18 +13,17 @@ export default class Node extends Component{
 
     render() {
        return(
-    <div>
-        <button className="p-4 justify-items-center border-opacity-100 border-gray border-2 w-auto h-auto"
-        onClick()={this.setState({ isWall: true })>
+    
+        
+        <button className="p-4 inline border-opacity-100 border-gray border-4 w-auto h-auto"
+        onClick={() => this.setState({ isWall: true })}>
        
         </button>
-        {/* <button className =""
-        onCLick>
-
-        </button> */}
-    </div>
+    
        );
-}
+
+    }
+    
     }
 
 
