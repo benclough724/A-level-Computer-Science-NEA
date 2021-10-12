@@ -16,7 +16,7 @@ export default class Node extends Component{
         
 
         return(
-        <button id={'node-${currentCol}-{currentRow}'} className="p-4 inline border-opacity-100 border-gray border-4 w-auto h-auto"
+        <button id={'node-${currentCol}-{currentRow}'} className={"p-4 inline border-opacity-100 border-gray border-4 w-auto h-auto" + isWall ? "bg-black" : "bg-white}
         onClick={() => this.setState({ isWall: true })}>
 
         </button>
