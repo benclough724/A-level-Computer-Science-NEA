@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Node from './Node.js';
-const test = ["Ben", "Joe", "CHris"];
+
 //const grid = [];
 
 class PathfinderGrid extends Component {
@@ -13,13 +13,14 @@ class PathfinderGrid extends Component {
   
 
   componentDidMount() {
+    const start = getStart();
     const grid = createGrid();
     this.setState({ grid });
-    //console.log(this.state.grid)
+    
   }
 
   render() {
-    //console.log(this.state.grid)
+    
     return (
       <div className="text-center margin-top-100">
         {this.state.grid.map((rows, currentRow) => {
@@ -31,6 +32,7 @@ class PathfinderGrid extends Component {
                     return <Node currentCol={currentCol} currentRow={currentRow}/>
                   })}
                 </ol>
+                
               </div>
 
           )
@@ -41,25 +43,41 @@ class PathfinderGrid extends Component {
 }
 
 
-
+/* Loops through from 0-20 rows and 0-47 columns and stores 
+ it in the 2D array grid */ 
 const createGrid = () => {
   let grid = [];
   for (let row = 1; row < 20; row++) {
     grid[row]= [];
     for (let col = 0; col < 47; col++) {
+      
       grid = createNode(grid, row, col);
     }
+    
     grid.push(grid[row]);
-    console.log(grid)
+    
   }
+  
   return grid;
 
 };
 
-const createNode = (grid, x, y) => {
+
+// Uses the grid 2D array and assigns x an y values to each node
+function createNode (grid, x, y)  {
   grid[x][y] = 1;
   return grid;
 }
+
+function getStart(grid, x, y){
+  const randomNum = [Math.floor(Math.random() * grid.length)]
+  const start = grid[randomNum] [Math.floor(Math.random() * grid[randomNum].length)]
+  console.log(start)
+//   console.log(startRow, startCol);
+//   return(startRow, startCol);
+ }
+
+
 
 export default PathfinderGrid;
 

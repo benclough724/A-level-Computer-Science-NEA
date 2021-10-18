@@ -1,24 +1,32 @@
 import React, {Component} from 'react';
 
-export default class Node extends Component{
+class Node extends Component{
     constructor(props) {
         super(props);
         this.state = {
             isWall: false,
-            count: 10,
+            startRow: props.startRow,
+            startCol: props.startCol,
             currentCol: props.currentCol,
             currentRow: props.currentRow
         };
      
     }
 
+   
+    
+    
+
     render() {
         
+        const cssData= 
+        this.state.isWall ? 'bg-black':
+        this.state.isStart ? 'bg-blue-500':
 
+        console.log(this.state.isWall)
         return(
-        <button id={'node-${currentCol}-{currentRow}'} className="p-4 inline border-opacity-100 border-gray border-4 w-auto h-auto"
-        onClick={() => this.setState({ isWall: true })}>
-
+        <button id={this.state.currentCol + this.state.currentRow} className={`p-4 inline border-opacity-100 border-gray border-4 w-auto h-auto ${cssData}`}
+        onClick={() => this.setState({ isStart: true })}>
         </button>
     
        );
@@ -26,9 +34,10 @@ export default class Node extends Component{
        
 
     }
-    
 
 
     }
 
+
+    export default Node;
 
