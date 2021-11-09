@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import Node from './Node.js';
 
-//const grid = [];
+const startNodeCol = 10;
+const startNodeRow = 15;
 
 class PathfinderGrid extends Component {
   constructor(props) {
@@ -29,7 +30,11 @@ class PathfinderGrid extends Component {
               <div className="">
                 <ol>
                   {rows.map((cols, currentCol) => {
-                    return <Node currentCol={currentCol} currentRow={currentRow}/>
+                    return <Node 
+                    currentCol={currentCol} 
+                    currentRow={currentRow}
+                    isStart={isStart}
+                    isWall={isWall}/>
                   })}
                 </ol>
                 
@@ -55,6 +60,7 @@ const createGrid = () => {
     }
     
     grid.push(grid[row]);
+    console.log(grid)
     
   }
   
@@ -66,16 +72,12 @@ const createGrid = () => {
 // Uses the grid 2D array and assigns x an y values to each node
 function createNode (grid, x, y)  {
   grid[x][y] = 1;
+  // isWall: false,
+  // isStart: x === startNodeCol && y === startNodeRow,
   return grid;
 }
 
-function getStart(grid, x, y){
-  const randomNum = [Math.floor(Math.random() * grid.length)]
-  const start = grid[randomNum] [Math.floor(Math.random() * grid[randomNum].length)]
-  console.log(start)
-//   console.log(startRow, startCol);
-//   return(startRow, startCol);
- }
+
 
 
 
