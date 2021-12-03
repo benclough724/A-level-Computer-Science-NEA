@@ -1,10 +1,11 @@
-import React, {Component} from 'react';
-import Node from './Components/Node.js';
+import React from 'react';
 import PathfinderGrid from './Components/PathfinderGrid.js';
+import BFS from './PathfindingAlgorithms/BreathFirstSearch.js';
 
 function App() {
   return(
   <PathfinderGrid></PathfinderGrid>
+  
   );
 }
 
