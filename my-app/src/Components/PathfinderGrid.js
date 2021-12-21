@@ -9,6 +9,7 @@ class PathfinderGrid extends Component {
     super(props)
     this.state = {
       grid: [],
+      neighbours: [],
     };
   }
   
@@ -22,21 +23,17 @@ class PathfinderGrid extends Component {
   render() {
     
     return (
-      <div >
+      <div class="grid hover: grid-flow-row">
         {this.state.grid.map((rows, currentRow) => {
           return (
 
               <div className="">
                 <ol>
-                  {rows.map((cols, currentCol, isStart) => {
+                  {rows.map((cols, currentCol) => {
                     return <Node 
                     currentCol={currentCol} 
                     currentRow={currentRow}
-                    isStart={isStart}
-                    onMouseDown={(x, y) => this.handleMouseDown(x, y)}
-                    onMouseEnter={(x, y) =>
-                        this.handleMouseEnter(x, y)
-                    }/>
+                    />
                   })}
                 </ol>
                 
@@ -55,16 +52,18 @@ class PathfinderGrid extends Component {
 const createGrid = () => {
   let neighbours = [];
   let grid = [];
-  for (let row = 0; row < 20; row++) {
+  for (let row = 1; row < 20; row++) {
     grid[row]= [];
-    neighbours[row] = [row - 1 && row + 1];
-    for (let col = 0; col < 47; col++) {
-      neighbours[col] = [col - 1 && col + 1]; 
+    
+    for (let col = 1; col < 47; col++) {
+      //neighbours[col] = [col - 1 && col + 1];
+      
       grid = createNode(grid, row, col);
+      
     }
-    neighbours.push(grid[row]);
+    
     grid.push(grid[row]);
-    console.log(neighbours);
+    
   }
   
   return grid;
@@ -75,15 +74,10 @@ const createGrid = () => {
 // Uses the grid 2D array and assigns x an y values to each node
 const createNode = (grid, row, col)  => {
   
-  
+  grid[row][col] = -1;
 
-  return{
-    row, 
-    col,
-    isStart: row === startNodeCol && col === startNodeRow,
-    grid
-  };
-}
+  return grid;
+};
 
 
 
